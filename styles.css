@@ -28,6 +28,7 @@ body {
   background: var(--cor-fundo);
 }
 
+
 .container {
   background: var(--cor-container);
   display: flex;
@@ -136,29 +137,60 @@ body {
 #reset { background: var(--cor-btn-reset); }
 #reset:hover { background: var(--cor-btn-reset-hover); }
 
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    color: var(--cor-texto);
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+footer a{
+    font-size: 25px;
+    color: var(--cor-texto);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+footer a:hover{
+    font-size: 28px;
+    transform: translateY(-2px);
+}
+
 @media screen and (max-width: 600px) {
-  .container {
-    width: 90%;
-    padding: 10px;
-    margin: 20px auto;
-  }
+    .container {
+        width: 90%;
+        padding: 10px;
+        margin: 30px auto;
+    }
 
-  .buttons {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
+    .buttons {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
 
-  #timer {
-    font-size: 2.5rem;
-    padding: 15px 50px;
-  }
-  .title h1 {
-    font-size: 1.3rem;
-    padding-right: 20px;
-  } 
-  .race-line {
-    height: 8px;
-    width: calc(100% + 20px);
-    margin: 0 -10px;
-  }
+    #timer {
+        font-size: 2.5rem;
+        padding: 15px 50px;
+    }
+
+    .title h1 {
+        font-size: 1.3rem;
+        padding-right: 20px;
+    }
+
+    .race-line {
+        height: 8px;
+        width: calc(100% + 20px);
+        margin: 0 -10px;
+    }
+
+    footer {
+        flex-direction: row;
+        gap: 10px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
 }
