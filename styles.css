@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+
+:root {
+  --font-principal: "Racing Sans One", sans-serif;
+  --font-btn: 'Verdana', Geneva, Tahoma, sans-serif;
+  --cor-fundo: rgb(9, 14, 19);
+  --cor-container: rgb(40, 68, 95);
+  --cor-texto: rgb(235, 238, 62);
+  --cor-erro: rgb(240, 69, 69);
+  --cor-timer-bg: #000;
+  --cor-timer-texto: #4cd137;
+  --cor-btn-start: rgb(50, 120, 40);
+  --cor-btn-start-hover: rgb(72, 161, 58);
+  --cor-btn-stop: rgb(200, 40, 40);
+  --cor-btn-stop-hover: rgb(220, 60, 60);
+  --cor-btn-reset: rgb(180, 150, 35);
+  --cor-btn-reset-hover: rgb(221, 192, 44);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-principal);
+}
+
+body {
+  background: var(--cor-fundo);
+}
+
+.container {
+  background: var(--cor-container);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--cor-texto);
+  position: relative;
+}
+
+.title h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-weight: 800;
+}
+
+.fa-stopwatch {
+  color: var(--cor-texto);
+  font-size: 2rem;
+  padding-left: 20px;
+}
+
+.traffic-light {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+.traffic-light div {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.traffic-green { background: rgb(76, 209, 55); }
+.traffic-yellow { background: rgb(255, 221, 51); }
+.traffic-red { background: rgb(255, 51, 51); }
+.traffic-orange { background: rgb(255, 153, 51); }
+
+#timer {
+  background: var(--cor-timer-bg);
+  color: var(--cor-timer-texto);
+  font: bold 3.2rem 'Digital-7', monospace;
+  text-align: center;
+  padding: 20px 80px;
+  text-shadow: 0 0 10px rgba(76, 209, 55, 0.7);
+  margin: 15px auto;
+  border-radius: 8px;
+}
+
+.race-line {
+  height: 10px;
+  width: calc(100% + 40px);
+  margin: 0 -20px;
+  background: repeating-linear-gradient(90deg, #fff, #fff 20px, #000 20px, #000 45px);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 7px;
+  border: none;
+  border-radius: 6px;
+  font: bold 0.9rem var(--font-btn);
+  cursor: pointer;
+  min-width: 100px;
+  text-transform: uppercase;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: #f0f0f0;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#start { background: var(--cor-btn-start); }
+#start:hover { background: var(--cor-btn-start-hover); }
+
+#stop { background: var(--cor-btn-stop); }
+#stop:hover { background: var(--cor-btn-stop-hover); }
+
+#reset { background: var(--cor-btn-reset); }
+#reset:hover { background: var(--cor-btn-reset-hover); }
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+  }
+
+  .buttons {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  #timer {
+    font-size: 2.5rem;
+    padding: 15px 50px;
+  }
+  .title h1 {
+    font-size: 1.3rem;
+    padding-right: 20px;
+  } 
+  .race-line {
+    height: 8px;
+    width: calc(100% + 20px);
+    margin: 0 -10px;
+  }
+}
