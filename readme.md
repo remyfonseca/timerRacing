@@ -9,7 +9,6 @@ As principais funcionalidades incluem:
 - **Iniciar, Pausar e Resetar o Timer**: Controle total sobre o cronômetro, permitindo iniciar, pausar e reiniciar a contagem a qualquer momento.
 - **Feedback Visual Dinâmico**: Mudança de cor e sombra no cronômetro para indicar o status atual (iniciado, pausado ou reiniciado).
 - **Exibição Precisa de Tempo**: O cronômetro exibe horas, minutos, segundos e milissegundos, com formatação automática para uma leitura clara.
-- **Design Responsivo**: Interface otimizada para diferentes tamanhos de tela, garantindo boa usabilidade em dispositivos móveis e desktops.
 - **Efeitos de Transição**: Animações sutis para uma experiência mais fluida e interativa ao interagir com os botões.
 
 ## 🎨 Tecnologias Utilizadas
