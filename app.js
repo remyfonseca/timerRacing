@@ -28,27 +28,25 @@ const atualizaTempo = () => {
     }
     timer.textContent = `${formataTempo(horas)}:${formataTempo(minutos)}:${formataTempo(segundos)}:${formataTempo(milisegundos / 10)}`;
 }
-
+const aplicarEstilos = (corTexto, boxShadow, transicao, botaoStartText, botaoStopText) => {
+    timer.style.color = corTexto;
+    timer.style.boxShadow = boxShadow;
+    timer.style.transition = transicao;
+    startButton.textContent = botaoStartText;
+    stopButton.textContent = botaoStopText;
+};
 startButton.addEventListener("click", () => {
     if (!intervalo) {
         intervalo = setInterval(atualizaTempo, 10); 
     }
-    timer.style.color = "";
-    timer.style.boxShadow = "0 0 10px var(--cor-timer-texto)";
-    timer.style.transition = "box-shadow 0.5s ease-in-out";
-    startButton.textContent = "Contando";
-    stopButton.textContent = "Parar";
+    aplicarEstilos("", "0 0 10px var(--cor-timer-texto)", "box-shadow 0.5s ease-in-out", "Contando", "Parar");
 });
 
 
 stopButton.addEventListener("click", () => {
     clearInterval(intervalo);
     intervalo = null;
-    timer.style.color = "var(--cor-erro)";
-    timer.style.boxShadow = "0 0 10px var(--cor-erro)";
-    timer.style.transition = "box-shadow 0.5s ease-in-out";
-    startButton.textContent = "Iniciar";
-    stopButton.textContent = "Parado";
+    aplicarEstilos("var(--cor-erro)", "0 0 10px var(--cor-erro)", "box-shadow 0.5s ease-in-out", "Iniciar", "Parado");
 });
 
 resetButton.addEventListener("click", () => {  
@@ -57,10 +55,7 @@ resetButton.addEventListener("click", () => {
     horas = 0;
     minutos = 0;
     segundos = 0;
-    timer.textContent = "00:00:00:00";
-    timer.style.color = "";
-    timer.style.boxShadow = "";
-    timer.style.transition = "box-shadow 0.5s ease-in-out";
-    startButton.textContent = "Iniciar";
-    stopButton.textContent = "Parar";
+    milisegundos = 0;
+    timer.textContent =  "00:00:00:00";
+    aplicarEstilos("", "0 0 10px var(--cor-timer-texto)", "box-shadow 0.5s ease-in-out", "Iniciar", "Parar");
 });
