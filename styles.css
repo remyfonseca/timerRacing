@@ -160,37 +160,68 @@ footer a:hover{
 }
 
 @media screen and (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 10px;
-        margin: 30px auto;
-    }
+  .container {
+    width: 90%;
+    padding: 10px;
+  }
 
-    .buttons {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
+  .buttons {
+    gap: 10px;
+  }
 
-    #timer {
-        font-size: 2.5rem;
-        padding: 15px 50px;
-    }
+  #timer {
+    font-size: 2.5rem;
+    padding: 15px 30px;
+  }
 
-    .title h1 {
-        font-size: 1.3rem;
-        padding-right: 20px;
-    }
+  .title h1 {
+    font-size: 1.3rem;
+  }
 
-    .race-line {
-        height: 8px;
-        width: calc(100% + 20px);
-        margin: 0 -10px;
-    }
+  .race-line {
+    height: 8px;
+    width: calc(100% + 20px);
+  }
 
-    footer {
-        flex-direction: row;
-        gap: 10px;
-        font-size: 0.9rem;
-        text-align: center;
-    }
+  footer {
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .buttons {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  #timer {
+    font-size: 2rem;
+    padding: 10px 50px;
+  }
+
+  .title h1 {
+    font-size: 1rem;
+    padding-right: 35px;
+  }
+
+  .race-line {
+    height: 8px;
+    width: calc(100% + 19px);
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    font-size: 20px;
+  }
 }
