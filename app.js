@@ -13,8 +13,8 @@ const formataTempo = (valor) =>{
 }
 
 const atualizaTempo = () => {
-    milisegundos ++; 
-    if (milisegundos >= 100) { 
+    milisegundos += 10; 
+    if (milisegundos >= 1000) { 
         milisegundos = 0;
         segundos++;
     }
@@ -26,7 +26,7 @@ const atualizaTempo = () => {
         minutos = 0;
         horas++;
     }
-    timer.textContent = `${formataTempo(horas)}:${formataTempo(minutos)}:${formataTempo(segundos)}:${formataTempo(milisegundos)}`;
+    timer.textContent = `${formataTempo(horas)}:${formataTempo(minutos)}:${formataTempo(segundos)}:${formataTempo(milisegundos / 10)}`;
 }
 
 startButton.addEventListener("click", () => {
@@ -37,6 +37,7 @@ startButton.addEventListener("click", () => {
     timer.style.boxShadow = "0 0 10px var(--cor-timer-texto)";
     timer.style.transition = "box-shadow 0.5s ease-in-out";
     startButton.textContent = "Contando";
+    stopButton.textContent = "Parar";
 });
 
 
@@ -47,6 +48,7 @@ stopButton.addEventListener("click", () => {
     timer.style.boxShadow = "0 0 10px var(--cor-erro)";
     timer.style.transition = "box-shadow 0.5s ease-in-out";
     startButton.textContent = "Iniciar";
+    stopButton.textContent = "Parado";
 });
 
 resetButton.addEventListener("click", () => {  
@@ -60,4 +62,5 @@ resetButton.addEventListener("click", () => {
     timer.style.boxShadow = "";
     timer.style.transition = "box-shadow 0.5s ease-in-out";
     startButton.textContent = "Iniciar";
+    stopButton.textContent = "Parar";
 });
