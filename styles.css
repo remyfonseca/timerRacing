@@ -9,12 +9,16 @@
   --cor-erro: rgb(240, 69, 69);
   --cor-timer-bg: #000;
   --cor-timer-texto: #4cd137;
-  --cor-btn-start: rgb(50, 120, 40);
-  --cor-btn-start-hover: rgb(72, 161, 58);
-  --cor-btn-stop: rgb(200, 40, 40);
-  --cor-btn-stop-hover: rgb(220, 60, 60);
-  --cor-btn-reset: rgb(180, 150, 35);
-  --cor-btn-reset-hover: rgb(221, 192, 44);
+  --cor-btn-start: rgb(30, 170, 70); 
+  --cor-btn-start-hover: rgb(20, 210, 80);
+  --cor-btn-stop: rgb(210, 40, 40);      
+  --cor-btn-stop-hover: rgb(250, 60, 60);
+  --cor-btn-reset: rgb(70, 130, 220);    
+  --cor-btn-reset-hover: rgb(90, 160, 250);
+  --cor-btn-lap: rgb(204, 207, 24);     
+  --cor-btn-lap-hover: rgb(235, 238, 62);
+  --cor-btn-resetFull: rgb(220, 110, 0); 
+  --cor-btn-resetFull-hover: rgb(255, 140, 20);
 }
 
 * {
@@ -27,7 +31,6 @@
 body {
   background: var(--cor-fundo);
 }
-
 
 .container {
   background: var(--cor-container);
@@ -45,7 +48,6 @@ body {
 .title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   color: var(--cor-texto);
   position: relative;
@@ -58,7 +60,12 @@ body {
   text-align: center;
   font-weight: 800;
 }
-
+h2 {
+  font-size: 1.5rem;
+  color: var(--cor-texto);
+  text-align: center;
+  margin-top: 10px;
+}
 .fa-stopwatch {
   color: var(--cor-texto);
   font-size: 2rem;
@@ -81,10 +88,11 @@ body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-.traffic-green { background: rgb(76, 209, 55); }
-.traffic-yellow { background: rgb(255, 221, 51); }
-.traffic-red { background: rgb(255, 51, 51); }
-.traffic-orange { background: rgb(255, 153, 51); }
+.traffic-green { background: var(--cor-btn-start); }
+.traffic-yellow { background: var(--cor-btn-lap); }
+.traffic-red { background: var(--cor-btn-stop); }
+.traffic-blue { background: var(--cor-btn-reset); }
+.traffic-orange { background: var(--cor-btn-resetFull); }
 
 #timer {
   background: var(--cor-timer-bg);
@@ -109,6 +117,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   padding: 20px;
   gap: 20px;
+  justify-content: center;
 }
 
 .btn {
@@ -128,15 +137,41 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+
 #start { background: var(--cor-btn-start); }
 #start:hover { background: var(--cor-btn-start-hover); }
+
+#lap { background: var(--cor-btn-lap); }
+#lap:hover { background: var(--cor-btn-lap-hover); }
 
 #stop { background: var(--cor-btn-stop); }
 #stop:hover { background: var(--cor-btn-stop-hover); }
 
+
+#resetFull { background: var(--cor-btn-resetFull); }
+#resetFull:hover { background: var(--cor-btn-resetFull-hover); }
+
 #reset { background: var(--cor-btn-reset); }
 #reset:hover { background: var(--cor-btn-reset-hover); }
 
+
+.lap-list {
+  background: var(--cor-fundo);
+  color: var(--cor-timer-texto);
+  width: 100%;
+  max-width: 400px;
+  padding: 50px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+#laps li{
+  list-style: none;
+  padding: 0;
+  background-color: var(--cor-fundo);
+  font: bold 1rem 'Digital-7', monospace;
+  text-align: center;
+  line-height: 1.3;
+}
 footer{
     display: flex;
     justify-content: center;
@@ -207,7 +242,7 @@ footer a:hover{
 
   .title h1 {
     font-size: 1rem;
-    padding-right: 35px;
+    padding-right: 43px;
   }
 
   .race-line {
@@ -217,7 +252,7 @@ footer a:hover{
 
   footer {
     flex-direction: column;
-    gap: 5px;
+    gap: 2px;
     font-size: 0.9rem;
   }
 
