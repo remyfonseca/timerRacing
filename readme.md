@@ -1,32 +1,37 @@
-# ⏱️ Timer JS
+# ⏱️ Racing Timer JS – Cronômetro com Registro de Voltas
 
-Este projeto é uma aplicação web interativa que simula um cronômetro funcional. Com recursos como iniciar, pausar e reiniciar, é ideal para monitorar o tempo em atividades diversas, como exercícios, jogos ou tarefas do dia a dia. Seu design intuitivo e responsivo garante uma experiência agradável para todos os usuários.
+Este projeto é uma aplicação web interativa que simula um cronômetro funcional e estilizado, com funcionalidades como **registro de voltas** e **salvamento automático via localStorage**. Ideal para acompanhar o tempo em exercícios, partidas de games, produtividade ou qualquer atividade que exija controle de tempo.
 
 ## 🚀 Funcionalidades
 
-As principais funcionalidades incluem:
+- **Iniciar, Pausar e Resetar o Timer**: Controle completo do tempo com apenas um clique.
+- **Registrar Voltas (Laps)**: Permite salvar tempos parciais durante a contagem.
+- **Reset Total**: Apaga todas as voltas salvas e reinicia o cronômetro do zero.
+- **Persistência com localStorage**: As voltas são salvas automaticamente e mantidas mesmo após recarregar ou fechar o navegador.
+- **Feedback Visual Dinâmico**: O cronômetro muda de cor e efeito de sombra conforme o status (ativo, pausado, resetado, etc.).
 
-- **Iniciar, Pausar e Resetar o Timer**: Controle total sobre o cronômetro, permitindo iniciar, pausar e reiniciar a contagem a qualquer momento.
-- **Feedback Visual Dinâmico**: Mudança de cor e sombra no cronômetro para indicar o status atual (iniciado, pausado ou reiniciado).
-- **Exibição Precisa de Tempo**: O cronômetro exibe horas, minutos, segundos e milissegundos, com formatação automática para uma leitura clara.
-- **Efeitos de Transição**: Animações sutis para uma experiência mais fluida e interativa ao interagir com os botões.
+## 📚 Tecnologias Utilizadas
 
-## 🎨 Tecnologias Utilizadas
+- **HTML5**: Estrutura semântica e organizada.
+- **CSS3**: Estilização moderna e responsiva, com uso de variáveis, grid e media queries.
+- **JavaScript**: Manipulação de tempo, DOM e armazenamento local.
+- **Font Awesome**: Ícones elegantes na barra de título e rodapé.
+- **Google Fonts**: Tipografia personalizada.
 
-- **HTML5**: Estruturação semântica das páginas.
-- **CSS3**: Estilização e design responsivo.
-- **JavaScript**: Lógica e manipulação do DOM para o funcionamento do Timer.
-- **Font Awesome**: Ícones para navegação e links sociais.
-- **GitHub**: Controle de versão e hospedagem do código.
+### 🧩 Como Funciona o Código
 
-## 🧩 Como Funciona o Código
+- **`formataTempo()`**: Formata horas, minutos, segundos e milissegundos para exibição consistente com 2 dígitos.
+- **`atualizaTempo()`**: Atualiza o cronômetro a cada 10ms, controlando milissegundos, segundos, minutos e horas.
+- **`#start` (Iniciar)**: Inicia a contagem e altera o texto do botão para "Contando". Inicia animação de transição.
+- **`#stop` (Parar)**: Pausa o cronômetro, altera o texto do botão para "Parado" e fornece feedback visual.
+- **`#reset` (Reiniciar)**: Zera o tempo do cronômetro, mas mantém o histórico de voltas.
+- **`#resetFull` (Reset Completo)**: Zera tudo, incluindo o `localStorage` e as voltas registradas.
+- **`#lap` (Volta)**: Adiciona uma volta com o tempo atual e salva no `localStorage`.
 
-- **formataTempo()**: Formata os valores de horas, minutos, segundos e milissegundos para garantir uma exibição consistente e com 2 dígitos.
-- **atualizaTempo()**: Atualiza o cronômetro a cada 10 milissegundos, incrementando os valores de milissegundos, segundos, minutos e horas.
-- **startButton (Iniciar)**: Inicia a contagem do cronômetro e altera o texto do botão para "Contando". Também inicia a animação de transição.
-- **stopButton (Parar)**: Interrompe o cronômetro e altera o texto do botão para "Parado", com feedback visual que indica o estado de pausa.
-- **resetButton (Reiniciar)**: Reinicia os valores do cronômetro, volta ao estado inicial e zera a contagem de tempo.
-- **Eventos de Clique**: Os eventos associados aos botões permitem interagir com o cronômetro e modificar seu estado (iniciar, pausar, reiniciar).
+### 💾 Registro de Voltas
+
+- **`salvarVoltas()`**: Coleta e salva as voltas em formato JSON no `localStorage`.
+- **`carregarVoltas()`**: Carrega as voltas salvas ao iniciar a página e recria os itens na lista.
 
 ## 💡 Como Visualizar o Projeto
 
@@ -36,6 +41,7 @@ As principais funcionalidades incluem:
    ```
 2. Navegue até o diretório do projeto.
 3. Abra o arquivo `index.html` no navegador para visualizar e interagir com o Timer.
+4. Acesse o Racing Timer diretamente no GitHub Pages: https://remyfonseca.github.io/timerRacing/
 
 ## 📬 Contato
 
