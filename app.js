@@ -76,6 +76,7 @@ resetFullButton.addEventListener("click", () => {
     timer.textContent =  "00:00:00:00";
     listLaps.innerHTML = "";
     volta = 1;
+    localStorage.removeItem('voltas');
     aplicarEstilos("", "0 0 10px var(--cor-btn-resetFull)", "box-shadow 0.5s ease-in-out", "Iniciar", "Parar");
 });
 
@@ -89,4 +90,33 @@ lapButton.addEventListener("click", () => {
     laps.textContent = `Tempo ${volta}: ${formataTempo(horas)}:${formataTempo(minutos)}:${formataTempo(segundos)}:${formataTempo(milisegundos / 10)}`;
     listLaps.appendChild(laps);
     volta++;
+    salvarVoltas();
 });
+
+const salvarVoltas = () => {
+    const voltas = listLaps.querySelectorAll('li');
+    const listaDeVoltas = []; 
+
+    for (let laps of voltas) {
+        let lapsTexto = laps.innerText;
+        listaDeVoltas.push(lapsTexto);
+    }
+    const voltasJSON = JSON.stringify(listaDeVoltas);
+    localStorage.setItem('voltas', voltasJSON);
+
+    console.log("Voltas salvas:", listaDeVoltas);
+    console.log("JSON salvo no localStorage:", voltasJSON);
+}
+
+const carregarVoltas = () => {
+    const voltasJSON = localStorage.getItem('voltas');
+    const listaDeVoltas = JSON.parse(voltasJSON);
+    for (let voltas of listaDeVoltas){
+        const laps = document.createElement("li");
+        laps.textContent = voltas;
+        listLaps.appendChild(laps);
+        volta++;
+    }
+}
+
+carregarVoltas();
