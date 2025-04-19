@@ -1,10 +1,5 @@
-const timer = document.querySelector("#timer");
-const startButton = document.querySelector("#start");
-const stopButton = document.querySelector("#stop");
-const resetFullButton = document.querySelector("#resetFull");
-const lapButton = document.querySelector("#lap");
-const listLaps = document.querySelector("#laps");
-const resetButton = document.querySelector("#reset");
+import {timer, startButton, stopButton, resetFullButton, lapButton, listLaps, resetButton} from './scripts/dom.js';
+
 let horas = 0;
 let minutos = 0;
 let segundos = 0;
@@ -12,7 +7,7 @@ let milisegundos = 0;
 let intervalo = null;
 let volta = 1;
 
-const formataTempo = (valor) =>{
+const formataTempo = (valor) => {
     return valor < 10 ? "0" + valor : valor;
 }
 
@@ -119,4 +114,6 @@ const carregarVoltas = () => {
     }
 }
 
-carregarVoltas();
+document.addEventListener("DOMContentLoaded", () => {
+    carregarVoltas();
+});
